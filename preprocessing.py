@@ -40,7 +40,6 @@ def murderDataIntegration():
 	df3['Year']='2015'
 	df3=df3.rename(columns={'State/UT':'State','Year':'Year','Number of Victims - Total of All Age Groups - T':'Total'})
 	df=df.append(df3)
-	print(df.shape)
 	return df
 
 def kidnappingDataIntegration():
@@ -78,11 +77,7 @@ def kidnappingDataIntegration():
 	df3=df3.rename(columns={'States/UTs':'State','Year':'Year','Total_Sex and Age Wise':'Total'})
 	df=df.append(df3)
 	df=df.append(df4)
-	print(df1.shape)
-	print(df2.shape)
-	print(df3.shape)
-	print(df4.shape)
-	print(df.shape)
+	return df
 
 
 def rapeDataIntegration():
@@ -106,10 +101,6 @@ def rapeDataIntegration():
     df3=df3.rename(columns={'State/UT':'State','Year':'Year','Number of Victims (Total Rape Cases) - Total Victims':'Total'})
     df=df1.append(df2)
     df=df.append(df3)
-    print(df1.shape)
-    print(df2.shape)
-    print(df3.shape)
-    print(df.shape)
     return df
 
 rapeDataIntegration()
