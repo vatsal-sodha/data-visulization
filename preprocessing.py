@@ -6,6 +6,11 @@ import re
 murderFile1="murder_data/Murder-2001-2012.csv"
 murderFile2="murder_data/Murder-2013.csv"
 murderFile3="murder_data/Murder-2015.csv"
+
+rapeFile1="rape_data/rape-2001-2012.csv"
+rapeFile2="rape_data/rape-2013.csv"
+rapeFile3="rape_data/rape-2015.csv"
+
 def murderDataIntegration():
 	df1=pd.read_csv(murderFile1)
 	df2=pd.read_csv(murderFile2)
@@ -33,3 +38,29 @@ def murderDataIntegration():
 	return df
 
 murderDataIntegration()
+
+def rapeDataIntegration():
+    df1=pd.read_csv(rapeFile1)
+    df2=pd.read_csv(rapeFile2)
+    df3=pd.read_csv(rapeFile3,encoding = "ISO-8859-1")
+    df1=df1[['STATE/UT','YEAR','Crime Head','Total Victims']]
+    df2=df2[['STATE/UT','YEAR','Crime Head','Total Victims']]
+    df3=df3[['State/UT','Number of Victims (Total Rape Cases) - Total Victims']]
+    df1['Crime Head']=(df1.loc[df1['Crime Head']=='Total'])
+    df1=df1.dropna()
+    df1=df1.drop('Crime Head',1)
+    df2['Crime Head']=(df2.loc[df2['Crime Head']=='Total'])
+    df2=df2.dropna()
+    df2=df2.drop('Crime Head',1)
+    df2=df2.drop(df2[df2['STATE/UT'].isin(["Total (All-India)","Total (UTs)"])].index)
+    df3=df3.drop(df3[df3['State/UT'].isin(["TOTAL (STATES)","TOTAL (UTS)","TOTAL (ALL INDIA)"])].index)
+    df3['Year']='2015'
+    df1=df1.rename(columns={'STATE/UT':'State','YEAR':'Year','Total Victims':'Total'})
+    df2=df2.rename(columns={'STATE/UT':'State','YEAR':'Year','Total Victims':'Total'})
+    df3=df3.rename(columns={'State/UT':'State','Year':'Year','Number of Victims (Total Rape Cases) - Total Victims':'Total'})
+    df=df1.append(df2)
+    df=df.append(df3)
+    print(df)
+    return df
+
+rapeDataIntegration()
