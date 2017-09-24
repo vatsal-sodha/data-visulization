@@ -2,6 +2,8 @@ import csv
 import pandas as pd
 import numpy as np
 import re
+# import matplotlib.pyplot as plt
+
 murderFile1="murder_data/Murder-2001-2012.csv"
 murderFile2="murder_data/Murder-2013.csv"
 murderFile3="murder_data/Murder-2015.csv"
