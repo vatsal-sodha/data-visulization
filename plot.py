@@ -61,9 +61,9 @@ murderYear=murderData['Year'].unique()
 fig = plt.figure()
 fig.subplots_adjust(left=0.3)
 props = ItemProperties(labelcolor='black', bgcolor='orange',
-                       fontsize=15, alpha=0.2)
+                       fontsize=10, alpha=0.4)
 hoverprops = ItemProperties(labelcolor='white', bgcolor='blue',
-                            fontsize=15, alpha=0.2)
+                            fontsize=10, alpha=0.4)
 
 # fig1 = plt.figure()
 # fig1.subplots_adjust(left=0.3)

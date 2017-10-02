@@ -132,7 +132,7 @@ class Menu(object):
         totalh = self.numitems*maxh + (self.numitems + 1)*2*MenuItem.pady
 
         x0 = 100
-        y0 = 400
+        y0 = 900
 
         width = maxw + 2*MenuItem.padx
         height = maxh + MenuItem.pady
